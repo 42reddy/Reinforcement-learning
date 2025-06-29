@@ -1,0 +1,7 @@
+This project simulates a reinforcement learning agent that learns to control the temperature of a 2D grid by selectively cooling points on the grid. The goal of the agent is to minimize the heat variance across the grid, essentially making the temperature distribution more uniform and reducing thermal hotspots.
+
+The environment is governed by a simplified 1D heat diffusion process. A central heat source is initialized, and over time, heat spreads outward according to the discrete Laplace operator. At each time step, the agent chooses a grid point to cool, reducing the temperature at that point. After each action, the grid evolves according to the physics of heat diffusion.
+
+The agent uses a deep Q learning approach. It observes the current grid state and selects an action from the available points using an epsilon-greedy policy. The Q-network is trained to predict the long-term reward associated with each possible action. The reward is computed as the reduction in temperature variance between two successive states. The agent is trained over multiple episodes using experience replay and a target network to stabilize learning.
+
+This setup allows the agent to discover effective strategies for cooling, such as targeting areas of high temperature or spatial gradients. Over time, the agent learns to reduce heat buildup and smooth out the distribution, improving the overall thermal stability of the system.
